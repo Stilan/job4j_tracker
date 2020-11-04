@@ -8,7 +8,11 @@ public class StartUI {
        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
        String stringData = item.getCreated().format(formatter);
        System.out.println(stringData);
-        System.out.println(item);
+       System.out.println(item);
+       Tracker tracker = new Tracker();
+       System.out.println(tracker.add(item));
+       System.out.println(tracker.findById(1));
+
     }
 
 }
