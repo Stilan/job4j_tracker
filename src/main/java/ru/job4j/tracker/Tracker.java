@@ -12,7 +12,6 @@ public class Tracker {
         items[size++] = item;
         return item;
     }
-
     public Item findById(int id) {
         /* Находим индекс */
         int index = indexOf(id);
@@ -20,7 +19,7 @@ public class Tracker {
         return index != -1 ? items[index] : null;
     }
     public Item[] findAll(){
-        
+
         return Arrays.copyOf(items, size);
     }
     public Item[] findByName(String key){
@@ -52,7 +51,5 @@ public class Tracker {
           findById(id).setName(item.getName());
           return true;
       }
-
     }
-
 }
