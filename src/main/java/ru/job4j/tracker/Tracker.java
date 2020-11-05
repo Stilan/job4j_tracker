@@ -51,23 +51,23 @@ public class Tracker {
     public boolean replace(int id, Item item) {
         int intId = indexOf(id);
         item.setId(id);
-        if (intId == -1) {
-            return false;
+        boolean rsl = intId != -1;
+        if (rsl) {
+            items[intId] = item;
         }
-        items[intId] = item;
-        return true;
+        return rsl;
     }
 
     public boolean delete(int id) {
         int index = indexOf(id);
         int start = index + 1;
         int length = size - index;
-        if (index == -1) {
-            return false;
+        boolean rsl = index != -1;
+        if (rsl) {
+            System.arraycopy(items, start, items, index, length);
+            items[size - 1] = null;
+            size--;
         }
-        System.arraycopy(items, start, items, index, length);
-        items[size - 1] = null;
-        size--;
-        return true;
+        return rsl;
     }
 }
