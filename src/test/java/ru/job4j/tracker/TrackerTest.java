@@ -35,13 +35,8 @@ public class TrackerTest {
         Item bug = new Item();
         bug.setName("Bug");
         tracker.add(bug);
-        Item bug2 = new Item();
-        bug2.setName("Bug2");
-        tracker.add(bug2);
-        int id2 = bug2.getId();
         int id = bug.getId();
         tracker.delete(id);
-        assertThat(tracker.findById(id2).getName(), is("Bug2"));
         assertThat(tracker.findById(id), is(nullValue()));
     }
 }
