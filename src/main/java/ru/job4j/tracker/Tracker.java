@@ -54,7 +54,7 @@ public class Tracker {
         if (intId == -1) {
             return false;
         }
-        items[indexOf(id)] = item;
+        items[intId] = item;
         return true;
     }
 
