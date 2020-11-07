@@ -18,6 +18,10 @@ public class Item {
         this.id = id;
         this.name = name;
     }
+    public Item(String name){
+        this.name = name;
+    }
+
 
     public LocalDateTime getCreated() {
         return created;
