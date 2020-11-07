@@ -3,6 +3,7 @@ package ru.job4j.tracker;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
+
 public class StartUI {
     public void init(Scanner scanner, Tracker tracker) {
         boolean run = true;
@@ -48,8 +49,8 @@ public class StartUI {
                 System.out.println("=== Find item by Id ====");
                 System.out.print("Enter id: ");
                 int id = Integer.valueOf(scanner.nextLine());
-                if (tracker.findById(id) != null) {
-                    Item item = tracker.findById(id);
+                Item item = tracker.findById(id);
+                if (item != null) {
                     System.out.println(item);
                 } else {
                     System.out.println("Заявка с таким id не найдена");
@@ -59,7 +60,7 @@ public class StartUI {
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
                 Item[] item = tracker.findByName(name);
-                if (tracker.findByName(name) != null) {
+                if (item.length > 0) {
                     for (int i = 0; i < item.length; i++) {
                         System.out.println(item[i]);
                     }
