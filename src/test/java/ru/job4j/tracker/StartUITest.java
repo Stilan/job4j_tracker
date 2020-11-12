@@ -12,8 +12,8 @@ import static org.hamcrest.Matchers.nullValue;
 
 
 
-public class StartUITest extends TestCase {
-
+public class StartUITest  {
+     @Test
     public void testCreateItem() {
         String[] answers = {"Fix PC"};
         Input input = new StubInput(answers);
@@ -24,7 +24,7 @@ public class StartUITest extends TestCase {
         assertThat(created.getName(), is(expected.getName()));
     }
 
-
+     @Test
     public void testCreateItem3() {
         Tracker tracker = new Tracker();
         Item item = new Item("new item");
@@ -38,16 +38,14 @@ public class StartUITest extends TestCase {
         assertThat(replaced.getName(), is("replaced item"));
     }
 
-
+      @Test
     public void testCreateItem4() {
         Tracker tracker = new Tracker();
         Item item = new Item("new item");
         tracker.add(item);
         String[] answers = {
                 String.valueOf(item.getId()) // id сохраненной заявки в объект tracker.
-
         };
-
         StartUI.createItem4(new StubInput(answers), tracker);
          Item delete = tracker.findById(item.getId());
         assertThat(delete,is(nullValue(null)));
