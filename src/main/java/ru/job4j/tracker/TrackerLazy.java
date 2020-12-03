@@ -6,7 +6,7 @@ public class TrackerLazy {
     private TrackerLazy(){
     }
 
-    private static TrackerLazy getInstance(){
+    public static TrackerLazy getInstance(){
         if (instance == null){
             instance = new TrackerLazy();
         }
