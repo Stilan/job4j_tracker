@@ -5,13 +5,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Tracker {
-    private final ArrayList<Item> items = new ArrayList<Item>();
+    private final List<Item> items = new ArrayList<Item>();
     private int ids = 1;
-    private int size = 0;
+  //  private int size = 0;
 
     public Item add(Item item) {
         item.setId(ids++);
-        items.add(size++,item);
+        items.add(item);
         return item;
     }
 
@@ -27,23 +27,24 @@ public class Tracker {
     }
 
 
-    public Item[] findByName(String key) {
-        Item[] items2 = new Item[size];
+    public List<Item> findByName(String key) {
+        List<Item> items2 = new ArrayList<>();
         int j = 0;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < items.size(); i++) {
             Item item = items.get(i);
             if (key.equals(item.getName())) {
-                items2[j] = item;
-                j++;
+                //items2[j] = item;
+                items2.add(item);
+               // j++;
             }
         }
-        items2 = Arrays.copyOf(items2, j);
+       // items2 = Arrays.copyOf(items2, j);
         return items2;
     }
 
     private int indexOf(int id) {
         int rsl = -1;
-        for (int index = 0; index < size; index++) {
+        for (int index = 0; index < items.size(); index++) {
             if (items.get(index).getId() == id) {
                 rsl = index;
                 break;
@@ -56,8 +57,9 @@ public class Tracker {
         item.setId(id);
         boolean rsl = intId != -1;
         if (rsl) {
-            items.remove(intId);
-            items.add(intId,item);
+           // items.remove(intId);
+           // items.add(intId,item);
+            items.set(intId,item);
         }
         return rsl;
     }
@@ -69,7 +71,7 @@ public class Tracker {
             // System.arraycopy(items, start, items, index, items.size());
            // items.add(size-1,null);
              items.remove(index);
-            size--;
+        //    size--;
         }
         return rsl;
     }
