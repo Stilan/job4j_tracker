@@ -6,6 +6,7 @@ public class IndexSearch implements UserAction {
     public IndexSearch(Output out) {
         this.out = out;
     }
+
     @Override
     public String name() {
         return "Find item by Id";

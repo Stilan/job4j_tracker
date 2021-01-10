@@ -19,13 +19,12 @@ public class Tracker {
         /* Находим индекс */
         int index = indexOf(id);
         /* Если индекс найден возвращаем item, иначе null */
-        return index != -1 ? items.get(index): null;
+        return index != -1 ? items.get(index) : null;
     }
 
     public List<Item> findAll() {
         return this.items;
     }
-
 
     public List<Item> findByName(String key) {
         List<Item> items2 = new ArrayList<>();
@@ -52,6 +51,7 @@ public class Tracker {
         }
         return rsl;
     }
+
     public boolean replace(int id, Item item) {
         int intId = indexOf(id);
         item.setId(id);
@@ -59,7 +59,7 @@ public class Tracker {
         if (rsl) {
            // items.remove(intId);
            // items.add(intId,item);
-            items.set(intId,item);
+            items.set(intId, item);
         }
         return rsl;
     }

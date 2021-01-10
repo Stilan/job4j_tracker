@@ -1,13 +1,9 @@
 package ru.job4j.tracker;
 
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-
 
 public class StartUI {
-
     private final Output out;
 
     public StartUI(Output out) {
@@ -20,7 +16,7 @@ public class StartUI {
             this.showMenu(actions);
             int select = input.askInt("Select: ");
             if (select < 0 || select >= actions.size()) {
-                out.println("Wrong input, you can select: 0 .. " + (actions.size()-1));
+                out.println("Wrong input, you can select: 0 .. " + (actions.size() - 1));
                 continue;
             }
             UserAction action = actions.get(select);

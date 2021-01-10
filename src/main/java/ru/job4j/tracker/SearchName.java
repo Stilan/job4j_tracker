@@ -3,12 +3,13 @@ package ru.job4j.tracker;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchName implements UserAction{
+public class SearchName implements UserAction {
     private final Output out;
 
     public SearchName(Output out) {
         this.out = out;
     }
+
     @Override
     public String name() {
         return "Find items by name";

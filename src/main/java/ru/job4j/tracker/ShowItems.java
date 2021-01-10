@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShowItems implements UserAction{
+public class ShowItems implements UserAction {
     private final Output out;
 
     public ShowItems(Output out) {

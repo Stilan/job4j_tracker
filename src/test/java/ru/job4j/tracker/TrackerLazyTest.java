@@ -10,10 +10,10 @@ import static org.junit.Assert.assertThat;
 
 public class TrackerLazyTest  {
    @Test
-    public void LazyTest(){
+    public void lazyTest() {
        TrackerLazy trackerLazy1 = TrackerLazy.getInstance();
        TrackerLazy trackerLazy2 = TrackerLazy.getInstance();
-       assertSame(trackerLazy1,trackerLazy2);
+       assertSame(trackerLazy1, trackerLazy2);
 
    }
 

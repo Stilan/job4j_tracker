@@ -1,19 +1,19 @@
 package ru.job4j.tracker;
 
-public class TrackerLazy {
+ public class TrackerLazy {
     private static TrackerLazy instance;
 
-    private TrackerLazy(){
+    private TrackerLazy() {
     }
 
-    public static TrackerLazy getInstance(){
-        if (instance == null){
+    public static TrackerLazy getInstance() {
+        if (instance == null) {
             instance = new TrackerLazy();
         }
         return instance;
     }
 
-    public Item add(Item model){
+    public Item add(Item model) {
         return model;
     }
 }

@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThat;
 public class TrackerEnumTest  {
 
     @Test
-    public void EnumTest () {
+    public void enumTest() {
         TrackerEnum trackerEnum1 = TrackerEnum.INSTANCE;
         TrackerEnum trackerEnum2 = TrackerEnum.INSTANCE;
         assertSame(trackerEnum1, trackerEnum2);

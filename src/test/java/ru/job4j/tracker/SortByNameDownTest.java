@@ -13,11 +13,11 @@ public class SortByNameDownTest  {
      @Test
     public void testCompare() {
        SortByNameDown sortByNameDown = new SortByNameDown();
-         List<Item>items = new ArrayList<>();
-         Item item1 =new Item(1,"Вася");
-         Item item2 = new Item(2,"Федя");
-         Item item3 = new Item(3,"Коля");
-         Item item4 = new Item(4,"Сергей");
+         List<Item> items = new ArrayList<>();
+         Item item1 = new Item(1, "Вася");
+         Item item2 = new Item(2, "Федя");
+         Item item3 = new Item(3, "Коля");
+         Item item4 = new Item(4, "Сергей");
          items.add(item1);
          items.add(item2);
          items.add(item3);

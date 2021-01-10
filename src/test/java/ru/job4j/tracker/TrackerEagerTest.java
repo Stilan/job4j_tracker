@@ -10,9 +10,9 @@ import static org.junit.Assert.assertThat;
 public class TrackerEagerTest  {
 
       @Test
-    public void EagerTest(){
+    public void eagerTest() {
          TrackerEager trackerEager1 = TrackerEager.INSTANCE;
          TrackerEager trackerEager2 = TrackerEager.INSTANCE;
-         assertSame(trackerEager1,trackerEager2);
+         assertSame(trackerEager1, trackerEager2);
       }
 }
