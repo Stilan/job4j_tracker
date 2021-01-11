@@ -8,22 +8,10 @@ import java.util.ArrayList;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
 
 public class StartUITest  {
-     @Test
-    public void testCreateItem() {
-        String[] answers = {"Fix PC", "XXX", "XXX"};
-        Input input = new StubInput(answers);
-        Tracker tracker = new Tracker();
-       // StartUI.(input, tracker);
-        Item created = tracker.findAll().get(0);
-        Item expected = new Item("Fix PC");
-        assertThat(created.getName(), is(expected.getName()));
-    }
 
-     @Test
+    @Test
     public void testCreateItem3() {
         Tracker tracker = new Tracker();
         Item item = new Item("replaced item");
@@ -37,7 +25,7 @@ public class StartUITest  {
         assertThat(replaced.getName(), is("replaced item"));
     }
 
-      @Test
+    @Test
     public void testCreateItem4() {
         Tracker tracker = new Tracker();
         Item item = new Item("new item");
@@ -48,20 +36,6 @@ public class StartUITest  {
      //   StartUI.createItem4(new StubInput(answers), tracker);
          Item delete = tracker.findById(item.getId());
         //assertThat(delete,is(nullValue(null)));
-    }
-
-    @Test
-    public void testInit() {
-        Input in = new StubInput(
-                new String[] {"0", "Item name", "1"}
-        );
-        Tracker tracker = new Tracker();
-        UserAction[] actions = {
-    //            new CreateAction(),
-                //new Exit()
-        };
-   //     new StartUI().init(in, tracker, actions);
-        assertThat(tracker.findAll().get(0).getName(), is("Item name"));
     }
 
     @Test
@@ -99,24 +73,6 @@ public class StartUITest  {
         };
     //    new StartUI().init(in, tracker, actions);
         //assertThat(tracker.findById(item.getId()), is(nullValue()));
-    }
-
-    @Test
-    public void whenExit() {
-
-        Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[] {"0"}
-        );
-        Tracker tracker = new Tracker();
-        UserAction[] actions = {
-                new Exit()
-        };
-   //    new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator()
-                        + "0. Exit" + System.lineSeparator()
-        ));
     }
 
     @Test
@@ -179,55 +135,4 @@ public class StartUITest  {
                         + "1. Exit" + System.lineSeparator()
         ));
     }
-
-    @Test
-    public void whenFindByIdAction() {
-        Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[] {"0", "1", "1"}
-        );
-        Tracker tracker = new Tracker();
-        UserAction[] actions = {
-                new IndexSearch(out),
-                new Exit()
-        };
-  //      new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator()
-                        + "0. Find item by Id" + System.lineSeparator()
-                        + "1. Exit"
-                        + System.lineSeparator()
-                        + "=== Find item by Id ===="
-                        + System.lineSeparator()
-                        + "Заявка с таким id не найдена"
-                        + System.lineSeparator()
-                        + "Menu."
-                        + System.lineSeparator()
-                        + "0. Find item by Id" + System.lineSeparator()
-                        + "1. Exit" + System.lineSeparator()
-
-        ));
-    }
-
-      @Test
-      public void whenInvalidExit() {
-          Output out = new StubOutput();
-          Input in = new StubInput(
-                  new String[] {/* Пункты меню: неверный, верный.*/" 8 ", " 0 "}
-          );
-          Tracker tracker = new Tracker();
-          UserAction[] actions = {
-                  new Exit()
-          };
- //         new StartUI(out).init(in, tracker, actions);
-          assertThat(out.toString(), is(
-                  String.format(
-                          "Menu.%n"
-                                  + "0. Exit%n"
-                                  + "Wrong input, you can select: 0 .. 0%n"
-                                  + "Menu.%n"
-                                  + "0. Exit%n"
-                  )
-          ));
-      }
 }
