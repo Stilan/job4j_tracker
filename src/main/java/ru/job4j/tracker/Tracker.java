@@ -9,6 +9,11 @@ public class Tracker {
     private int ids = 1;
   //  private int size = 0;
 
+    /**
+     * добавляет заявку, переданную в аргументах в массив заявок items.
+     * @param item уникальный ключ в объект Item
+     * @return item
+     */
     public Item add(Item item) {
         item.setId(ids++);
         items.add(item);
@@ -41,6 +46,12 @@ public class Tracker {
         return items2;
     }
 
+    /**
+     * Метод indexOf объявлен как private,
+     * потому что он используется только внутри системы.
+     * @param id это уникальный номер заявления.
+     * @return метод возвращает объект Item
+     */
     private int indexOf(int id) {
         int rsl = -1;
         for (int index = 0; index < items.size(); index++) {
