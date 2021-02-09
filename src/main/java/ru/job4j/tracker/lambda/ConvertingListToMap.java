@@ -8,7 +8,9 @@ import java.util.stream.Collectors;
 public class ConvertingListToMap {
 
     public Map<String, Student> isListToMap(List<Student> students) {
-        return students.stream().distinct().collect(Collectors.toMap(Student::getSurname,
-                student -> student));
+        return students.stream().collect(Collectors.toMap(Student::getSurname,
+                student -> student, (student1, student2) ->
+                        student1.getScore() > student2.getScore()
+                                ? student1 : student2));
     }
 }

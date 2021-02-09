@@ -27,6 +27,8 @@ public class SchoolTest {
         students.add(new Student(70, "Surname7"));
         students.add(new Student(80, "Surname8"));
         students.add(new Student(90, "Surname9"));
+        students.add(new Student(80, "Surname10"));
+        students.add(new Student(90, "Surname11"));
     }
 
     @Test
@@ -79,6 +81,8 @@ public class SchoolTest {
         expected.put("Surname7", new Student(70, "Surname7"));
         expected.put("Surname8", new Student(80, "Surname8"));
         expected.put("Surname9", new Student(90, "Surname9"));
+        expected.put("Surname10", new Student(80, "Surname10"));
+        expected.put("Surname11", new Student(90, "Surname11"));
         assertThat(rsl, is(expected));
 
     }
