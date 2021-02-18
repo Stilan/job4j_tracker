@@ -15,6 +15,7 @@ public class AnalyzeTest  {
         );
         assertThat(average, is(100D));
     }
+
     @Test
     public void whenPupilAverage() {
         double average = Analyze.averageScore(
