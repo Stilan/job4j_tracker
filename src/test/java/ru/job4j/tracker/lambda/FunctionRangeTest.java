@@ -30,5 +30,4 @@ public class FunctionRangeTest  {
         List<Double> expected = Arrays.asList(32D, 64D, 128D);
         assertThat(result, is(expected));
     }
-
 }
