@@ -10,23 +10,24 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class ProfilesTest  {
-       List<Profile> profileList = new ArrayList<>();
+
+     private List<Profile> profileArrayList = new ArrayList<>();
 
     @Before
     public void setUp() {
-        profileList.add(new Profile(new Address("Москва", "Ленина", 12, 43)));
-        profileList.add(new Profile(new Address("Н-Новгород", "Гоголя", 14, 4)));
-        profileList.add(new Profile(new Address("Мурманск", "Гоголя", 12, 5)));
-        profileList.add(new Profile(new Address("Екатеренбург", "Ленина", 16, 3)));
-        profileList.add(new Profile(new Address("Москва", "Гоголя", 43, 8)));
-        profileList.add(new Profile(new Address("Москва", "Гоголя", 43, 8)));
-        profileList.add(new Profile(new Address("Москва", "Гоголя", 43, 8)));
+        profileArrayList.add(new Profile(new Address("Москва", "Ленина", 12, 43)));
+        profileArrayList.add(new Profile(new Address("Н-Новгород", "Гоголя", 14, 4)));
+        profileArrayList.add(new Profile(new Address("Мурманск", "Гоголя", 12, 5)));
+        profileArrayList.add(new Profile(new Address("Екатеренбург", "Ленина", 16, 3)));
+        profileArrayList.add(new Profile(new Address("Москва", "Гоголя", 43, 8)));
+        profileArrayList.add(new Profile(new Address("Москва", "Гоголя", 43, 8)));
+        profileArrayList.add(new Profile(new Address("Москва", "Гоголя", 43, 8)));
     }
 
     @Test
-    public void ProfilesTest1() {
+    public void profilesTest1() {
         Profiles profiles = new Profiles();
-        List<Address> addressList = profiles.collect(profileList);
+        List<Address> addressList = profiles.collect(profileArrayList);
         List<Address> expected = new ArrayList<>();
         expected.add(new Address("Екатеренбург", "Ленина", 16, 3));
         expected.add(new Address("Москва", "Ленина", 12, 43));

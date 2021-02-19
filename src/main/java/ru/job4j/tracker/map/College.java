@@ -29,6 +29,7 @@ public class College {
         }
         return null;
     }
+
     public static void main(String[] args) {
         Map<Student, Set<Subject>> students = Map.of(new Student("Student", "000001", "201-18-15"),
                 Set.of(

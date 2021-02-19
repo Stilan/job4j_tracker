@@ -6,17 +6,23 @@ import java.util.List;
 public class Analize {
     public static Info diff(List<User> previous, List<User> current) {
         Info info = new Info();
-        info.added = (int) current.stream().dropWhile(previous::contains).count();
-        // метод dropWhile удалит все элементы которых есть в previous а count() выдаст количество элементов в потоке;
-        info.deleted = (int) previous.stream().filter(o -> !current.contains(o)).count();
-        // filter возвращает поток, состоящий из элементов этого потока, которые соответствуют заданному предикату.
-        // filter(o -> !current.contains(o)).count() предикат !current.contains(o) не содержет current список элемент о.previous.
-        info.changed = (int) previous.stream().
+        info.setAdded((int) current.stream().dropWhile(previous::contains).count());
+        // метод dropWhile удалит все элементы которых есть в previous
+        // а count() выдаст количество элементов в потоке;
+        info.setDeleted((int) previous.stream().filter(o -> !current.contains(o)).count());
+        // filter возвращает поток, состоящий из элементов этого потока,
+        // которые соответствуют заданному предикату.
+        // filter(o -> !current.contains(o)).count() предикат !current.contains(o)
+        // не содержет current список элемент о.previous.
+        info.setChanged((int) previous.stream().
                 filter(current::contains).
-                filter(o -> !o.getName().equals(current.get(current.indexOf(o)).getName())).
-                count();
-        // filter(current::contains) возвращает поток, состоящий из элементов этого потока(current::contains количество элементов в current).
-        // !o.getName().equals(current.get(current.indexOf(o)).getName())). количество элементов не равных previous в current;
+                filter(o -> !o.getName()
+                        .equals(current.get(current.indexOf(o)).getName())).
+                count());
+        // filter(current::contains) возвращает поток, состоящий
+        // из элементов этого потока(current::contains количество элементов в current).
+        // !o.getName().equals(current.get(current.indexOf(o)).
+        // getName())). количество элементов не равных previous в current;
         return info;
     }
 

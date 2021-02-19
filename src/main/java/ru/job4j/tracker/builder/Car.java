@@ -13,13 +13,13 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "machineBrand='" + machineBrand + '\'' +
-                ", model='" + model + '\'' +
-                ", yearOfRelease=" + yearOfRelease +
-                ", engineVolume=" + engineVolume +
-                ", speed=" + speed +
-                '}';
+        return "Car{"
+                + "machineBrand='" + machineBrand + '\''
+                + ", model='" + model + '\''
+                + ", yearOfRelease=" + yearOfRelease
+                + ", engineVolume=" + engineVolume
+                + ", speed=" + speed
+                + '}';
     }
 
     static class BuilderCar {
@@ -28,7 +28,6 @@ public class Car {
        private int yearOfRelease;
        private double engineVolume;
        private int speed;
-
 
        BuilderCar builderMachineBrand(String machineBrand) {
            this.machineBrand  = machineBrand;

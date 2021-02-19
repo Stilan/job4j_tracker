@@ -1,8 +1,8 @@
 package ru.job4j.tracker.lambda;
 
     public  class User {
-        int id;
-        String name;
+       private int id;
+       private String name;
 
         public User(int id, String name) {
             this.id = id;
@@ -19,8 +19,12 @@ package ru.job4j.tracker.lambda;
 
         @Override
         public boolean equals(Object o) {
-            if(this == o) return true;
-            if(!(o instanceof User)) return false;
+            if (this == o) {
+                return true;
+            }
+            if (!(o instanceof User)) {
+                return false;
+            }
 
             User user = (User) o;
 
