@@ -9,44 +9,32 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class EasyStream {
+    private List<Integer> integerList = new ArrayList<>();
 
-    List<Integer> integerList = new ArrayList<>();
-
-    public void setIntegerList(List<Integer> integerList) {
+    private EasyStream(List<Integer> integerList) {
         this.integerList = integerList;
     }
 
-    public List<Integer> getIntegerList() {
-        return integerList;
-    }
-
     public static EasyStream of(List<Integer> source) {
-        EasyStream easyStream = new EasyStream();
-        easyStream.setIntegerList(source.stream().collect(Collectors.toUnmodifiableList()));
-       return easyStream;
+       return new EasyStream(source.stream().collect(Collectors.toUnmodifiableList()));
     }
 
     public EasyStream map(Function<Integer, Integer> fun) {
-        EasyStream easyStream = new EasyStream();
         List<Integer> integerList2 = new ArrayList<>();
         for (int i = 0; i < integerList.size(); i++) {
           integerList2.add(fun.apply(integerList.get(i)));
         }
-        easyStream.setIntegerList(integerList2);
-        return easyStream;
+        return new EasyStream(integerList2.stream().collect(Collectors.toUnmodifiableList()));
     }
 
     public EasyStream filter(Predicate<Integer> fun) {
-        EasyStream easyStream = new EasyStream();
         List<Integer> integerList2 = new ArrayList<>();
         for (int i = 0; i < integerList.size(); i++) {
             if (fun.test(integerList.get(i))) {
                 integerList2.add(integerList.get(i));
             }
         }
-
-        easyStream.setIntegerList(integerList2);
-        return easyStream;
+        return new EasyStream(integerList2.stream().collect(Collectors.toUnmodifiableList()));
     }
 
     public List<Integer> collect() {
